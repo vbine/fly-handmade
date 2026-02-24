@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fly — Bolsas & Acessórios Handmade</title>
+  <meta name="description" content="Bolsas e acessórios em miçangas feitos à mão em São Paulo. Peças exclusivas, modernas e personalizadas. Cada peça é um original.">
+  <meta property="og:title" content="fly — Bolsas & Acessórios Handmade">
+  <meta property="og:description" content="Feito à mão, feito pra você. Bolsas, porta-cartão e acessórios em miçangas com personalização total.">
+  <meta property="og:image" content="https://fly-handmade.com.br/og.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --wine:        #7A1B2E;
+      --wine-deep:   #5D1223;
+      --wine-mid:    #9B2B42;
+      --cream:       #F6F1EB;
+      --ivory:       #FAF7F3;
+      --white:       #FFFFFF;
+      --ink:         #1A1A1A;
+      --muted:       #888;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Jost', sans-serif;
+      --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── UTIL ───────────────────────────────────────────── */
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.75rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(93, 18, 35, 0.96);
+      backdrop-filter: blur(16px);
+      padding-top: 1.1rem; padding-bottom: 1.1rem;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.8rem; font-weight: 400;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -0.03em;
+      position: relative; display: inline-block;
+    }
+    /* Pearl dot — echoes the 'y' signature of the logotype */
+    .nav-logo::after {
+      content: '';
+      display: block; width: 5px; height: 5px;
+      background: var(--white); border-radius: 50%;
+      position: absolute; bottom: 4px; right: -8px;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.62rem; font-weight: 200;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-size: 0.62rem; font-weight: 300;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.6rem 1.6rem; border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .nav-cta:hover { background: var(--white); color: var(--wine); border-color: var(--white); }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      background: var(--wine);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    /* Radial glow layers for depth */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 40%, rgba(184,60,90,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 85% 15%, rgba(80,10,20,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 60% 90%, rgba(60,8,18,0.5) 0%, transparent 60%);
+    }
+
+    /* Grain overlay */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events: none; mix-blend-mode: overlay;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.58rem; font-weight: 200;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2rem;
+      animation: fadeUp 1s var(--ease-out) 0.2s both;
+    }
+
+    .hero-wordmark {
+      font-family: var(--serif);
+      font-size: clamp(8rem, 22vw, 20rem);
+      font-weight: 400; line-height: 0.88;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      display: block; position: relative;
+      animation: fadeUp 1.1s var(--ease-out) 0.35s both;
+    }
+
+    /* The iconic sphere/pearl at the end of 'y' */
+    .hero-wordmark::after {
+      content: '';
+      display: inline-block;
+      width: clamp(0.65rem, 1.6vw, 1.4rem);
+      height: clamp(0.65rem, 1.6vw, 1.4rem);
+      background: var(--white); border-radius: 50%;
+      position: absolute;
+      bottom: clamp(0.4rem, 1vw, 0.9rem);
+      right: clamp(-0.05rem, 0.3vw, 0.4rem);
+    }
+
+    .hero-tags {
+      margin-top: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.9s var(--ease-out) 0.7s both;
+    }
+
+    .hero-tag {
+      font-size: 0.58rem; font-weight: 200;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .btn-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2.75rem;
+      background: var(--white); color: var(--wine);
+      border: 1px solid var(--white); border-radius: 100px;
+      font-family: var(--sans); font-size: 0.65rem; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+    }
+    .btn-pill:hover { background: transparent; color: var(--white); }
+
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--wine); border-color: var(--white); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase;
+      animation: fadeUp 0.8s var(--ease-out) 1.3s both;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 48px;
+      background: rgba(255,255,255,0.25);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%,100% { transform: scaleY(1); opacity: 0.25; }
+      50% { transform: scaleY(0.5); opacity: 0.7; }
+    }
+
+    /* ─── SECTION BASE ───────────────────────────────────── */
+    .section { padding: 9rem 3rem; }
+
+    .label {
+      font-size: 0.58rem; font-weight: 200;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--wine); display: block; margin-bottom: 1.25rem;
+    }
+
+    .display {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+      font-weight: 400; line-height: 1.04;
+      letter-spacing: -0.025em;
+    }
+
+    /* ─── PRODUCTS ───────────────────────────────────────── */
+    .products { background: var(--cream); }
+
+    .products-head {
+      max-width: 1260px; margin: 0 auto 5rem;
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem;
+    }
+
+    .products-grid {
+      max-width: 1260px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    }
+
+    .p-card {
+      background: var(--white);
+      overflow: hidden; position: relative;
+      transition: transform 0.45s var(--ease-out);
+    }
+    .p-card:hover { transform: translateY(-6px); }
+
+    .p-img {
+      aspect-ratio: 4/5;
+      position: relative; overflow: hidden;
+    }
+
+    /* Placeholder gradient per product */
+    .p-img-fill {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem; letter-spacing: 0.2em; font-weight: 200;
+    }
+    .p-img-fill.wine   { background: linear-gradient(150deg, #7A1B2E 0%, #C55075 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.blue   { background: linear-gradient(150deg, #1B3B7A 0%, #5075C5 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.green  { background: linear-gradient(150deg, #1B7A42 0%, #50C578 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.gold   { background: linear-gradient(150deg, #7A5F1B 0%, #C5A850 100%); color: rgba(255,255,255,0.4); }
+
+    /* "Make it yours" overlay on hover */
+    .p-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%);
+      display: flex; align-items: flex-end; padding: 1.5rem;
+      opacity: 0; transition: opacity 0.35s;
+    }
+    .p-card:hover .p-overlay { opacity: 1; }
+    .p-overlay .btn-pill { width: 100%; justify-content: center; font-size: 0.6rem; padding: 0.75rem; }
+
+    .p-info { padding: 1.25rem 1.25rem 1.5rem; }
+    .p-name {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .p-sub {
+      font-size: 0.68rem; font-weight: 200; color: var(--muted);
+      letter-spacing: 0.04em; margin-bottom: 0.8rem;
+    }
+    .p-price { font-size: 0.72rem; font-weight: 300; color: var(--wine); letter-spacing: 0.05em; }
+
+    /* ─── HOW IT WORKS ───────────────────────────────────── */
+    .how {
+      background: var(--wine); color: var(--white);
+    }
+
+    .how-inner {
+      max-width: 1260px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 9rem; align-items: center;
+    }
+
+    .how-text .label { color: rgba(255,255,255,0.4); }
+    .how-text .display { color: var(--white); margin-bottom: 1.75rem; }
+    .how-text p {
+      font-size: 0.9rem; font-weight: 200; line-height: 1.85;
+      color: rgba(255,255,255,0.6); margin-bottom: 2.5rem;
+    }
+
+    .steps { display: flex; flex-direction: column; gap: 2.25rem; }
+    .step { display: flex; gap: 1.75rem; align-items: flex-start; }
+    .step-num {
+      font-family: var(--serif); font-size: 3.5rem; font-weight: 400;
+      line-height: 1; color: rgba(255,255,255,0.12); min-width: 2rem; flex-shrink: 0;
+    }
+    .step-body h4 {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+      color: var(--white); margin-bottom: 0.35rem;
+    }
+    .step-body p {
+      font-size: 0.73rem; font-weight: 200; line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── STORY ──────────────────────────────────────────── */
+    .story { background: var(--ivory); }
+
+    .story-inner {
+      max-width: 1260px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.9fr 1fr; gap: 9rem; align-items: center;
+    }
+
+    .story-visual { position: relative; }
+    .story-img {
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, var(--wine), #C06080);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 0.1em;
+    }
+    .story-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      width: 42%; aspect-ratio: 1;
+      background: var(--white);
+      border: 6px solid var(--ivory);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.15rem; text-align: center; padding: 1rem;
+    }
+    .story-badge .big {
+      font-family: var(--serif); font-size: 3rem; font-weight: 400;
+      line-height: 1; color: var(--wine);
+    }
+    .story-badge small {
+      font-size: 0.55rem; font-weight: 200; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .story-text .display { margin-bottom: 2.25rem; }
+    .story-text p {
+      font-size: 0.9rem; font-weight: 200; line-height: 1.9;
+      color: #666; margin-bottom: 1.4rem;
+    }
+    .story-stats {
+      margin-top: 3rem; padding-top: 2rem;
+      border-top: 1px solid #E0D8D0;
+      display: flex; gap: 3rem;
+    }
+    .stat h3 {
+      font-family: var(--serif); font-size: 2.75rem; font-weight: 400;
+      line-height: 1; color: var(--wine); margin-bottom: 0.3rem;
+    }
+    .stat p {
+      font-size: 0.58rem; font-weight: 200; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted);
+      margin: 0;
+    }
+
+    /* ─── CTA STRIP ──────────────────────────────────────── */
+    .cta {
+      background: var(--ink);
+      padding: 9rem 3rem; text-align: center;
+    }
+    .cta .label { color: rgba(255,255,255,0.35); margin-bottom: 1.25rem; }
+    .cta .display { color: var(--white); margin-bottom: 1.75rem; }
+    .cta p {
+      font-size: 0.88rem; font-weight: 200; line-height: 1.85;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px; margin: 0 auto 3rem;
+    }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--wine);
+      padding: 2.75rem 3rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif); font-size: 2rem; font-weight: 400;
+      color: var(--white); letter-spacing: -0.03em; position: relative;
+    }
+    .footer-logo::after {
+      content: '';
+      display: block; width: 4px; height: 4px;
+      background: rgba(255,255,255,0.5); border-radius: 50%;
+      position: absolute; bottom: 4px; right: -7px;
+    }
+
+    .footer-mid { text-align: center; }
+    .footer-mid p {
+      font-size: 0.58rem; font-weight: 200; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 0.15rem;
+    }
+
+    .footer-links { display: flex; gap: 1.75rem; }
+    .footer-links a {
+      font-size: 0.6rem; font-weight: 200; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-inner, .story-inner { grid-template-columns: 1fr; gap: 5rem; }
+      .story-badge { right: 0; bottom: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .section { padding: 6rem 1.5rem; }
+
+      .products-head {
+        flex-direction: column; align-items: flex-start; margin-bottom: 2.5rem;
+      }
+      .hero-tags { gap: 1.25rem; }
+
+      .cta-btns { flex-direction: column; align-items: center; }
+
+      footer {
+        flex-direction: column; text-align: center; padding: 2.25rem 1.5rem;
+      }
+      .footer-links { justify-content: center; }
+
+      .story-stats { gap: 1.75rem; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────── -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo" aria-label="fly — página inicial">fly</a>
+    <ul class="nav-links">
+      <li><a href="#produtos">Peças</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#historia">Nossa história</a></li>
+    </ul>
+    <a href="https://wa.me/5511999999999?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
+       class="nav-cta" target="_blank" rel="noopener">Encomendar</a>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────── -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Bolsas &amp; Acessórios Handmade &middot; São Paulo</p>
+      <span class="hero-wordmark" aria-label="fly">fly</span>
+      <div class="hero-tags">
+        <span class="hero-tag">Handmade</span>
+        <a href="https://wa.me/5511999999999?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
+           class="btn-pill" target="_blank" rel="noopener">
+          Make it yours
+        </a>
+        <span class="hero-tag">Since 2025</span>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCTS ──────────────────────── -->
+  <section class="section products" id="produtos">
+    <div class="products-head">
+      <div class="reveal">
+        <span class="label">The Collection</span>
+        <h2 class="display">Cada peça,<br>um original.</h2>
+      </div>
+      <a href="https://wa.me/5511999999999?text=Oi!+Quero+ver+os+produtos+da+Fly"
+         class="btn-pill btn-outline reveal"
+         style="color:var(--wine);border-color:var(--wine);"
+         target="_blank" rel="noopener">
+        Fazer encomenda
+      </a>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Bolsa -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <div class="p-img-fill wine">FOTO EM BREVE</div>
+          <div class="p-overlay">
+            <a href="https://wa.me/5511999999999?text=Quero+uma+Bolsa+Fly!+🎀"
+               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+          </div>
+        </div>
+        <div class="p-info">
+          <h3 class="p-name">The Bag</h3>
+          <p class="p-sub">Bolsa artesanal em miçangas · Personalização total de cores</p>
+          <p class="p-price">A partir de R$&nbsp;250</p>
+        </div>
+      </div>
+
+      <!-- Porta-cartão -->
+      <div class="p-card reveal" style="transition-delay:0.1s">
+        <div class="p-img">
+          <div class="p-img-fill blue">FOTO EM BREVE</div>
+          <div class="p-overlay">
+            <a href="https://wa.me/5511999999999?text=Quero+um+Porta-cart%C3%A3o+Fly!"
+               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+          </div>
+        </div>
+        <div class="p-info">
+          <h3 class="p-name">Card Holder</h3>
+          <p class="p-sub">Porta-cartão artesanal · Miçangas coloridas</p>
+          <p class="p-price">A partir de R$&nbsp;90</p>
+        </div>
+      </div>
+
+      <!-- Porta-isqueiro -->
+      <div class="p-card reveal" style="transition-delay:0.2s">
+        <div class="p-img">
+          <div class="p-img-fill green">FOTO EM BREVE</div>
+          <div class="p-overlay">
+            <a href="https://wa.me/5511999999999?text=Quero+um+Porta-isqueiro+Fly!"
+               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+          </div>
+        </div>
+        <div class="p-info">
+          <h3 class="p-name">Lighter Cover</h3>
+          <p class="p-sub">Porta-isqueiro artesanal · Estilo único</p>
+          <p class="p-price">A partir de R$&nbsp;70</p>
+        </div>
+      </div>
+
+      <!-- Chaveiro -->
+      <div class="p-card reveal" style="transition-delay:0.3s">
+        <div class="p-img">
+          <div class="p-img-fill gold">FOTO EM BREVE</div>
+          <div class="p-overlay">
+            <a href="https://wa.me/5511999999999?text=Quero+um+Chaveiro+Fly!"
+               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+          </div>
+        </div>
+        <div class="p-info">
+          <h3 class="p-name">Keychain</h3>
+          <p class="p-sub">Chaveiro artesanal · Personalize as cores</p>
+          <p class="p-price">A partir de R$&nbsp;50</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ──────────────────── -->
+  <section class="section how" id="como-funciona">
+    <div class="how-inner">
+
+      <div class="how-text reveal">
+        <span class="label">Como funciona</span>
+        <h2 class="display">Feito pra você.<br>Do zero.</h2>
+        <p>Cada peça é produzida à mão com cuidado e dedicação. Você escolhe as cores e o estilo — a gente transforma em realidade. Nada de estoque: tudo é feito especialmente para quem vai usar.</p>
+        <a href="https://wa.me/5511999999999?text=Quero+personalizar+minha+pe%C3%A7a+Fly!"
+           class="btn-pill btn-outline" target="_blank" rel="noopener">
+          Começar meu pedido
+        </a>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">01</span>
+          <div class="step-body">
+            <h4>Escolha sua peça</h4>
+            <p>Bolsa, porta-cartão, porta-isqueiro ou chaveiro. Você decide o ponto de partida.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">02</span>
+          <div class="step-body">
+            <h4>Define as cores</h4>
+            <p>Nos chama no WhatsApp e a gente monta a paleta de miçangas ideal pra você.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">03</span>
+          <div class="step-body">
+            <h4>A gente faz com amor</h4>
+            <p>Sua peça é produzida à mão em até 10 dias úteis. Entrada de 50% ao confirmar.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">04</span>
+          <div class="step-body">
+            <h4>Receba e arrasa</h4>
+            <p>Saldo + envio ao concluir. Sua peça chega e ninguém no mundo tem igual.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── STORY ─────────────────────────── -->
+  <section class="section story" id="historia">
+    <div class="story-inner">
+
+      <div class="story-visual reveal">
+        <div class="story-img">Foto das sócias</div>
+        <div class="story-badge" aria-hidden="true">
+          <span class="big">3</span>
+          <small>Mãos que<br>criam</small>
+        </div>
+      </div>
+
+      <div class="story-text reveal">
+        <span class="label">Nossa história</span>
+        <h2 class="display">Do hobby<br>à marca.</h2>
+        <p>A Fly nasceu em novembro de 2025 como um escape criativo de três amigas que encontraram nas miçangas uma forma de expressar quem são.</p>
+        <p>O que começou como hobby virou paixão — e a paixão virou marca. Flávia, Lais e Yasmin. Três CLTs que decidiram criar algo próprio, original e bonito de verdade.</p>
+        <p>Cada bolsa tem 7 horas de trabalho por trás. Não é produto, é obra.</p>
+        <div class="story-stats">
+          <div class="stat">
+            <h3>7h</h3>
+            <p>por bolsa</p>
+          </div>
+          <div class="stat">
+            <h3>100%</h3>
+            <p>Handmade</p>
+          </div>
+          <div class="stat">
+            <h3>∞</h3>
+            <p>Combinações</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────── -->
+  <section class="cta" id="contato">
+    <span class="label reveal">Encomendas abertas</span>
+    <h2 class="display reveal" style="color:var(--white);margin-bottom:1.75rem;">Sua peça espera<br>por você.</h2>
+    <p class="reveal">Fala com a gente pelo WhatsApp para escolher sua peça e personalizar as cores. Produção artesanal, entrega com amor.</p>
+    <div class="cta-btns reveal">
+      <a href="https://wa.me/5511999999999?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
+         class="btn-pill btn-white" target="_blank" rel="noopener">
+        Pedir pelo WhatsApp
+      </a>
+      <a href="https://instagram.com/fly.handmade"
+         class="btn-pill btn-outline" target="_blank" rel="noopener">
+        @fly.handmade
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────── -->
+  <footer>
+    <div class="footer-logo" aria-label="fly">fly</div>
+    <div class="footer-mid">
+      <p>Handmade &middot; São Paulo &middot; Since 2025</p>
+      <p>Feito com amor e miçangas ♥</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/fly.handmade" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    const hero = document.querySelector('.hero');
+
+    const navObs = new IntersectionObserver(([entry]) => {
+      nav.classList.toggle('scrolled', !entry.isIntersecting);
+    }, { threshold: 0.15 });
+    navObs.observe(hero);
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
