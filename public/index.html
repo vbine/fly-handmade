@@ -4,19 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fly — Bolsas & Acessórios Handmade</title>
-  <meta name="description" content="Bolsas e acessórios em miçangas feitos à mão em São Paulo. Peças exclusivas, modernas e personalizadas. Cada peça é um original.">
+  <meta name="description" content="Bolsas e acessórios em miçangas feitos à mão em São Paulo. Peças exclusivas, modernas e 100% personalizadas. Cada peça leva o nome de quem vai usar.">
   <meta property="og:title" content="fly — Bolsas & Acessórios Handmade">
   <meta property="og:description" content="Feito à mão, feito pra você. Bolsas, porta-cartão e acessórios em miçangas com personalização total.">
-  <meta property="og:image" content="https://fly-handmade.com.br/og.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── RESET & TOKENS ─────────────────────────────────── */
+    /* ─── RESET & TOKENS ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --wine:        #7A1B2E;
       --wine-deep:   #5D1223;
@@ -30,141 +28,26 @@
       --sans:        'Jost', sans-serif;
       --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      color: var(--ink);
-      background: var(--white);
-      overflow-x: hidden;
-    }
+    body { font-family: var(--sans); color: var(--ink); background: var(--white); overflow-x: hidden; }
 
-    /* ─── UTIL ───────────────────────────────────────────── */
-    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-
-    /* ─── NAVBAR ─────────────────────────────────────────── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: 1.75rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
-    }
-    .nav.scrolled {
-      background: rgba(93, 18, 35, 0.96);
-      backdrop-filter: blur(16px);
-      padding-top: 1.1rem; padding-bottom: 1.1rem;
-    }
-
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.8rem; font-weight: 400;
-      color: var(--white); text-decoration: none;
-      letter-spacing: -0.03em;
-      position: relative; display: inline-block;
-    }
-    /* Pearl dot — echoes the 'y' signature of the logotype */
-    .nav-logo::after {
-      content: '';
-      display: block; width: 5px; height: 5px;
-      background: var(--white); border-radius: 50%;
-      position: absolute; bottom: 4px; right: -8px;
-    }
-
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.62rem; font-weight: 200;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.65); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-cta {
-      font-size: 0.62rem; font-weight: 300;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 0.6rem 1.6rem; border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.25s;
-    }
-    .nav-cta:hover { background: var(--white); color: var(--wine); border-color: var(--white); }
-
-    /* ─── HERO ───────────────────────────────────────────── */
-    .hero {
-      min-height: 100svh;
-      background: var(--wine);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-
-    /* Radial glow layers for depth */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 15% 40%, rgba(184,60,90,0.35) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 85% 15%, rgba(80,10,20,0.6) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 60% 90%, rgba(60,8,18,0.5) 0%, transparent 60%);
-    }
-
-    /* Grain overlay */
-    .hero::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-      pointer-events: none; mix-blend-mode: overlay;
-    }
-
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; padding: 0 2rem;
-    }
-
-    .hero-eyebrow {
+    /* ─── UTIL ───────────────────────────────────────── */
+    .label {
       font-size: 0.58rem; font-weight: 200;
-      letter-spacing: 0.4em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 2rem;
-      animation: fadeUp 1s var(--ease-out) 0.2s both;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--wine); display: block; margin-bottom: 1.25rem;
     }
-
-    .hero-wordmark {
+    .label-light { color: rgba(255,255,255,0.45); }
+    .display {
       font-family: var(--serif);
-      font-size: clamp(8rem, 22vw, 20rem);
-      font-weight: 400; line-height: 0.88;
-      color: var(--white);
-      letter-spacing: -0.04em;
-      display: block; position: relative;
-      animation: fadeUp 1.1s var(--ease-out) 0.35s both;
+      font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+      font-weight: 400; line-height: 1.04; letter-spacing: -0.025em;
     }
+    .section { padding: 9rem 3rem; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* The iconic sphere/pearl at the end of 'y' */
-    .hero-wordmark::after {
-      content: '';
-      display: inline-block;
-      width: clamp(0.65rem, 1.6vw, 1.4rem);
-      height: clamp(0.65rem, 1.6vw, 1.4rem);
-      background: var(--white); border-radius: 50%;
-      position: absolute;
-      bottom: clamp(0.4rem, 1vw, 0.9rem);
-      right: clamp(-0.05rem, 0.3vw, 0.4rem);
-    }
-
-    .hero-tags {
-      margin-top: 3rem;
-      display: flex; align-items: center; justify-content: center;
-      gap: 2.5rem; flex-wrap: wrap;
-      animation: fadeUp 0.9s var(--ease-out) 0.7s both;
-    }
-
-    .hero-tag {
-      font-size: 0.58rem; font-weight: 200;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
+    /* ─── BUTTONS ────────────────────────────────────── */
     .btn-pill {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.9rem 2.75rem;
@@ -176,85 +59,116 @@
       transition: all 0.3s var(--ease-out);
     }
     .btn-pill:hover { background: transparent; color: var(--white); }
-
-    .btn-outline {
-      background: transparent; color: var(--white);
-      border-color: rgba(255,255,255,0.35);
-    }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.35); }
     .btn-outline:hover { background: var(--white); color: var(--wine); border-color: var(--white); }
+    .btn-wine { background: var(--wine); color: var(--white); border-color: var(--wine); }
+    .btn-wine:hover { background: var(--wine-deep); border-color: var(--wine-deep); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
 
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase;
-      animation: fadeUp 0.8s var(--ease-out) 1.3s both;
+    /* ─── NAVBAR ─────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 1.75rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease;
     }
-    .hero-scroll-line {
-      width: 1px; height: 48px;
-      background: rgba(255,255,255,0.25);
-      animation: scrollLine 2s ease-in-out infinite;
+    .nav.scrolled { background: rgba(93,18,35,0.96); backdrop-filter: blur(16px); padding-top: 1.1rem; padding-bottom: 1.1rem; }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 400;
+      color: var(--white); text-decoration: none; letter-spacing: -0.03em;
+      position: relative; display: inline-block;
     }
-    @keyframes scrollLine {
-      0%,100% { transform: scaleY(1); opacity: 0.25; }
-      50% { transform: scaleY(0.5); opacity: 0.7; }
+    .nav-logo::after {
+      content: ''; display: block; width: 5px; height: 5px;
+      background: var(--white); border-radius: 50%;
+      position: absolute; bottom: 4px; right: -8px;
     }
-
-    /* ─── SECTION BASE ───────────────────────────────────── */
-    .section { padding: 9rem 3rem; }
-
-    .label {
-      font-size: 0.58rem; font-weight: 200;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--wine); display: block; margin-bottom: 1.25rem;
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.62rem; font-weight: 200; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s;
     }
-
-    .display {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5.5vw, 5.5rem);
-      font-weight: 400; line-height: 1.04;
-      letter-spacing: -0.025em;
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: 0.62rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--white); border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.6rem 1.6rem; border-radius: 100px; text-decoration: none; transition: all 0.25s;
     }
+    .nav-cta:hover { background: var(--white); color: var(--wine); border-color: var(--white); }
 
-    /* ─── PRODUCTS ───────────────────────────────────────── */
-    .products { background: var(--cream); }
-
-    .products-head {
-      max-width: 1260px; margin: 0 auto 5rem;
-      display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 2rem;
-    }
-
-    .products-grid {
-      max-width: 1260px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
-    }
-
-    .p-card {
-      background: var(--white);
-      overflow: hidden; position: relative;
-      transition: transform 0.45s var(--ease-out);
-    }
-    .p-card:hover { transform: translateY(-6px); }
-
-    .p-img {
-      aspect-ratio: 4/5;
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      min-height: 100svh; background: var(--wine);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       position: relative; overflow: hidden;
     }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 40%, rgba(184,60,90,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 85% 15%, rgba(80,10,20,0.6) 0%, transparent 60%);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events: none; mix-blend-mode: overlay;
+    }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
+    .hero-eyebrow {
+      font-size: 0.58rem; font-weight: 200; letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 2rem;
+      animation: fadeUp 1s var(--ease-out) 0.2s both;
+    }
+    .hero-wordmark {
+      font-family: var(--serif);
+      font-size: clamp(8rem, 22vw, 20rem);
+      font-weight: 400; line-height: 0.88; color: var(--white);
+      letter-spacing: -0.04em; display: block; position: relative;
+      animation: fadeUp 1.1s var(--ease-out) 0.35s both;
+    }
+    .hero-wordmark::after {
+      content: ''; display: inline-block;
+      width: clamp(0.65rem, 1.6vw, 1.4rem); height: clamp(0.65rem, 1.6vw, 1.4rem);
+      background: var(--white); border-radius: 50%;
+      position: absolute; bottom: clamp(0.4rem, 1vw, 0.9rem); right: clamp(-0.05rem, 0.3vw, 0.4rem);
+    }
+    .hero-tags {
+      margin-top: 3rem;
+      display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.9s var(--ease-out) 0.7s both;
+    }
+    .hero-tag { font-size: 0.58rem; font-weight: 200; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: rgba(255,255,255,0.3); font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase;
+      animation: fadeUp 0.8s var(--ease-out) 1.3s both;
+    }
+    .hero-scroll-line { width: 1px; height: 48px; background: rgba(255,255,255,0.25); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%,100% { transform: scaleY(1); opacity: 0.25; } 50% { transform: scaleY(0.5); opacity: 0.7; } }
 
-    /* Placeholder gradient per product */
+    /* ─── PRODUCTS ───────────────────────────────────── */
+    .products { background: var(--cream); }
+    .products-head {
+      max-width: 1260px; margin: 0 auto 5rem;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+    }
+    .products-grid { max-width: 1260px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .p-card { background: var(--white); overflow: hidden; position: relative; transition: transform 0.45s var(--ease-out); }
+    .p-card:hover { transform: translateY(-6px); }
+    .p-img { aspect-ratio: 4/5; position: relative; overflow: hidden; }
     .p-img-fill {
       width: 100%; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
       font-size: 0.62rem; letter-spacing: 0.2em; font-weight: 200;
     }
-    .p-img-fill.wine   { background: linear-gradient(150deg, #7A1B2E 0%, #C55075 100%); color: rgba(255,255,255,0.4); }
-    .p-img-fill.blue   { background: linear-gradient(150deg, #1B3B7A 0%, #5075C5 100%); color: rgba(255,255,255,0.4); }
-    .p-img-fill.green  { background: linear-gradient(150deg, #1B7A42 0%, #50C578 100%); color: rgba(255,255,255,0.4); }
-    .p-img-fill.gold   { background: linear-gradient(150deg, #7A5F1B 0%, #C5A850 100%); color: rgba(255,255,255,0.4); }
-
-    /* "Make it yours" overlay on hover */
+    .p-img-fill.wine  { background: linear-gradient(150deg, #7A1B2E 0%, #C55075 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.blue  { background: linear-gradient(150deg, #1B3B7A 0%, #5075C5 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.green { background: linear-gradient(150deg, #1B7A42 0%, #50C578 100%); color: rgba(255,255,255,0.4); }
+    .p-img-fill.gold  { background: linear-gradient(150deg, #7A5F1B 0%, #C5A850 100%); color: rgba(255,255,255,0.4); }
+    .p-img-name { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: rgba(255,255,255,0.22); }
+    .p-img-tag { font-size: 0.55rem; letter-spacing: 0.2em; }
     .p-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 55%);
@@ -263,191 +177,264 @@
     }
     .p-card:hover .p-overlay { opacity: 1; }
     .p-overlay .btn-pill { width: 100%; justify-content: center; font-size: 0.6rem; padding: 0.75rem; }
-
     .p-info { padding: 1.25rem 1.25rem 1.5rem; }
-    .p-name {
-      font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
-      margin-bottom: 0.3rem;
-    }
-    .p-sub {
-      font-size: 0.68rem; font-weight: 200; color: var(--muted);
-      letter-spacing: 0.04em; margin-bottom: 0.8rem;
-    }
+    .p-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .p-sub { font-size: 0.68rem; font-weight: 200; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 0.8rem; }
     .p-price { font-size: 0.72rem; font-weight: 300; color: var(--wine); letter-spacing: 0.05em; }
 
-    /* ─── HOW IT WORKS ───────────────────────────────────── */
-    .how {
-      background: var(--wine); color: var(--white);
+    /* ─── TICKER ─────────────────────────────────────── */
+    .ticker-wrap {
+      background: var(--wine); overflow: hidden;
+      padding: 1.25rem 0; white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex; gap: 0;
+      animation: ticker 18s linear infinite;
+    }
+    .ticker-item {
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+      color: var(--white); letter-spacing: 0.06em;
+      padding: 0 3rem; flex-shrink: 0;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .ticker-item::after { content: '❖'; font-size: 0.65rem; opacity: 0.5; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-wrap:hover .ticker-track { animation-play-state: paused; }
+
+    /* ─── NAMED PIECES GALLERY ───────────────────────── */
+    .gallery { background: var(--ivory); }
+    .gallery-inner { max-width: 1260px; margin: 0 auto; }
+    .gallery-head { margin-bottom: 4rem; }
+    .gallery-head .display { margin-bottom: 1rem; }
+    .gallery-head p { font-size: 0.9rem; font-weight: 200; line-height: 1.8; color: #666; max-width: 480px; }
+
+    .gallery-carousel { position: relative; overflow: hidden; }
+    .gallery-track { display: flex; gap: 1.5rem; transition: transform 0.5s var(--ease-out); }
+    .gallery-slide { min-width: calc(33.333% - 1rem); position: relative; flex-shrink: 0; }
+    .gallery-slide-img {
+      aspect-ratio: 3/4; position: relative; overflow: hidden;
+    }
+    .gallery-slide-fill {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      padding: 2rem;
+      position: relative;
+    }
+    .gallery-slide-fill::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
+    }
+    .gallery-slide-info { position: relative; z-index: 1; color: var(--white); }
+    .gallery-slide-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+    .gallery-slide-style { font-size: 0.6rem; font-weight: 200; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.65; }
+
+    .gallery-g1 { background: linear-gradient(160deg, #7A1B2E, #C55075 80%); }
+    .gallery-g2 { background: linear-gradient(160deg, #1B4A7A, #4A7AC5 80%); }
+    .gallery-g3 { background: linear-gradient(160deg, #4A1B7A, #9055C5 80%); }
+    .gallery-g4 { background: linear-gradient(160deg, #7A5A1B, #C5A050 80%); }
+    .gallery-g5 { background: linear-gradient(160deg, #1B7A52, #50C598 80%); }
+    .gallery-g6 { background: linear-gradient(160deg, #7A1B55, #C55099 80%); }
+
+    .gallery-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 2.5rem;
+    }
+    .gallery-dots { display: flex; gap: 0.5rem; }
+    .gallery-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #ccc; cursor: pointer; transition: all 0.25s;
+      border: none; padding: 0;
+    }
+    .gallery-dot.active { background: var(--wine); width: 18px; border-radius: 3px; }
+    .gallery-arrows { display: flex; gap: 0.75rem; }
+    .gallery-arrow {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid #ccc;
+      background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--ink);
+      transition: all 0.2s;
+    }
+    .gallery-arrow:hover { background: var(--wine); border-color: var(--wine); color: var(--white); }
+
+    /* ─── CUSTOM FORM ────────────────────────────────── */
+    .custom-section { background: var(--wine); color: var(--white); }
+    .custom-inner { max-width: 1260px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 9rem; align-items: flex-start; }
+    .custom-text .label { color: rgba(255,255,255,0.45); }
+    .custom-text .display { color: var(--white); margin-bottom: 1.75rem; }
+    .custom-text p { font-size: 0.9rem; font-weight: 200; line-height: 1.85; color: rgba(255,255,255,0.6); margin-bottom: 1.25rem; }
+    .custom-tagline {
+      margin-top: 3rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .custom-tagline p { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: rgba(255,255,255,0.5); margin: 0; }
+
+    /* Form */
+    .enquiry-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .field label {
+      font-size: 0.6rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .field label span { color: rgba(255,255,255,0.3); font-size: 0.55rem; }
+    .field input, .field select, .field textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0.875rem 1rem;
+      font-family: var(--sans); font-size: 0.85rem; font-weight: 200;
+      color: var(--white);
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.1);
+    }
+    .field select option { background: var(--wine-deep); color: var(--white); }
+    .field textarea { resize: vertical; min-height: 80px; }
+
+    .field-hint {
+      font-size: 0.6rem; font-weight: 200; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
     }
 
-    .how-inner {
-      max-width: 1260px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1.1fr; gap: 9rem; align-items: center;
+    /* Color pickers */
+    .color-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .color-input-area {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    }
+    .color-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px; padding: 0.35rem 0.75rem;
+      font-size: 0.65rem; font-weight: 200; color: var(--white);
+      cursor: pointer; transition: background 0.15s;
+    }
+    .color-chip:hover { background: rgba(255,255,255,0.2); }
+    .color-chip-remove { font-size: 0.7rem; opacity: 0.5; line-height: 1; }
+    .color-add-input {
+      background: transparent; border: none;
+      font-family: var(--sans); font-size: 0.8rem; font-weight: 200;
+      color: var(--white); outline: none;
+      padding: 0.35rem 0; min-width: 120px;
+    }
+    .color-add-input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .file-drop {
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 4px; padding: 1.5rem;
+      text-align: center; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .file-drop:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+    .file-drop-label { font-size: 0.72rem; font-weight: 200; color: rgba(255,255,255,0.4); display: block; margin-bottom: 0.5rem; }
+    .file-drop input[type="file"] { display: none; }
+    .file-name { font-size: 0.65rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; }
+
+    .form-submit { margin-top: 0.5rem; }
+    .form-submit .btn-pill { width: 100%; justify-content: center; font-size: 0.7rem; padding: 1.1rem; }
+    .form-note {
+      font-size: 0.6rem; font-weight: 200; color: rgba(255,255,255,0.3);
+      text-align: center; letter-spacing: 0.05em; margin-top: 0.75rem;
     }
 
-    .how-text .label { color: rgba(255,255,255,0.4); }
-    .how-text .display { color: var(--white); margin-bottom: 1.75rem; }
-    .how-text p {
-      font-size: 0.9rem; font-weight: 200; line-height: 1.85;
-      color: rgba(255,255,255,0.6); margin-bottom: 2.5rem;
-    }
-
+    /* ─── HOW IT WORKS ───────────────────────────────── */
+    .how { background: var(--white); }
+    .how-inner { max-width: 1260px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
     .steps { display: flex; flex-direction: column; gap: 2.25rem; }
     .step { display: flex; gap: 1.75rem; align-items: flex-start; }
     .step-num {
       font-family: var(--serif); font-size: 3.5rem; font-weight: 400;
-      line-height: 1; color: rgba(255,255,255,0.12); min-width: 2rem; flex-shrink: 0;
+      line-height: 1; color: rgba(0,0,0,0.07); min-width: 2rem; flex-shrink: 0;
     }
-    .step-body h4 {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
-      color: var(--white); margin-bottom: 0.35rem;
-    }
-    .step-body p {
-      font-size: 0.73rem; font-weight: 200; line-height: 1.65;
-      color: rgba(255,255,255,0.5);
-    }
+    .step-body h4 { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink); margin-bottom: 0.35rem; }
+    .step-body p { font-size: 0.73rem; font-weight: 200; line-height: 1.65; color: var(--muted); }
 
-    /* ─── STORY ──────────────────────────────────────────── */
+    /* ─── STORY ──────────────────────────────────────── */
     .story { background: var(--ivory); }
-
-    .story-inner {
-      max-width: 1260px; margin: 0 auto;
-      display: grid; grid-template-columns: 0.9fr 1fr; gap: 9rem; align-items: center;
-    }
-
+    .story-inner { max-width: 1260px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1fr; gap: 9rem; align-items: center; }
     .story-visual { position: relative; }
-    .story-img {
-      aspect-ratio: 3/4;
-      background: linear-gradient(145deg, var(--wine), #C06080);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 0.1em;
-    }
-    .story-badge {
-      position: absolute; bottom: -1.5rem; right: -1.5rem;
-      width: 42%; aspect-ratio: 1;
-      background: var(--white);
-      border: 6px solid var(--ivory);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.15rem; text-align: center; padding: 1rem;
-    }
-    .story-badge .big {
-      font-family: var(--serif); font-size: 3rem; font-weight: 400;
-      line-height: 1; color: var(--wine);
-    }
-    .story-badge small {
-      font-size: 0.55rem; font-weight: 200; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted);
-    }
-
+    .story-img { aspect-ratio: 3/4; background: linear-gradient(145deg, var(--wine), #C06080); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 0.1em; }
+    .story-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; width: 42%; aspect-ratio: 1; background: var(--white); border: 6px solid var(--ivory); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem; text-align: center; padding: 1rem; }
+    .story-badge .big { font-family: var(--serif); font-size: 3rem; font-weight: 400; line-height: 1; color: var(--wine); }
+    .story-badge small { font-size: 0.55rem; font-weight: 200; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     .story-text .display { margin-bottom: 2.25rem; }
-    .story-text p {
-      font-size: 0.9rem; font-weight: 200; line-height: 1.9;
-      color: #666; margin-bottom: 1.4rem;
-    }
-    .story-stats {
-      margin-top: 3rem; padding-top: 2rem;
-      border-top: 1px solid #E0D8D0;
-      display: flex; gap: 3rem;
-    }
-    .stat h3 {
-      font-family: var(--serif); font-size: 2.75rem; font-weight: 400;
-      line-height: 1; color: var(--wine); margin-bottom: 0.3rem;
-    }
-    .stat p {
-      font-size: 0.58rem; font-weight: 200; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--muted);
-      margin: 0;
-    }
+    .story-text p { font-size: 0.9rem; font-weight: 200; line-height: 1.9; color: #666; margin-bottom: 1.4rem; }
+    .story-stats { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #E0D8D0; display: flex; gap: 3rem; }
+    .stat h3 { font-family: var(--serif); font-size: 2.75rem; font-weight: 400; line-height: 1; color: var(--wine); margin-bottom: 0.3rem; }
+    .stat p { font-size: 0.58rem; font-weight: 200; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin: 0; }
 
-    /* ─── CTA STRIP ──────────────────────────────────────── */
-    .cta {
-      background: var(--ink);
-      padding: 9rem 3rem; text-align: center;
+    /* ─── FAQ ────────────────────────────────────────── */
+    .faq { background: var(--cream); }
+    .faq-inner { max-width: 780px; margin: 0 auto; }
+    .faq-inner .display { margin-bottom: 4rem; }
+    .faq-item {
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
-    .cta .label { color: rgba(255,255,255,0.35); margin-bottom: 1.25rem; }
+    .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      background: none; border: none; padding: 1.75rem 0; cursor: pointer;
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+      color: var(--ink); text-align: left; gap: 1.5rem;
+    }
+    .faq-icon {
+      font-size: 1.25rem; line-height: 1; flex-shrink: 0;
+      transition: transform 0.3s var(--ease-out); color: var(--wine);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out), padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a p { font-size: 0.88rem; font-weight: 200; line-height: 1.85; color: #666; padding-bottom: 1.75rem; }
+
+    /* ─── CTA STRIP ──────────────────────────────────── */
+    .cta { background: var(--ink); padding: 9rem 3rem; text-align: center; }
+    .cta .label { color: rgba(255,255,255,0.35); }
     .cta .display { color: var(--white); margin-bottom: 1.75rem; }
-    .cta p {
-      font-size: 0.88rem; font-weight: 200; line-height: 1.85;
-      color: rgba(255,255,255,0.45);
-      max-width: 480px; margin: 0 auto 3rem;
-    }
+    .cta p { font-size: 0.88rem; font-weight: 200; line-height: 1.85; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto 3rem; }
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-white { background: var(--white); color: var(--ink); border-color: var(--white); }
-    .btn-white:hover { background: transparent; color: var(--white); }
 
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    footer {
-      background: var(--wine);
-      padding: 2.75rem 3rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
-    }
-
-    .footer-logo {
-      font-family: var(--serif); font-size: 2rem; font-weight: 400;
-      color: var(--white); letter-spacing: -0.03em; position: relative;
-    }
-    .footer-logo::after {
-      content: '';
-      display: block; width: 4px; height: 4px;
-      background: rgba(255,255,255,0.5); border-radius: 50%;
-      position: absolute; bottom: 4px; right: -7px;
-    }
-
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer { background: var(--wine); padding: 2.75rem 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--white); letter-spacing: -0.03em; position: relative; }
+    .footer-logo::after { content: ''; display: block; width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; position: absolute; bottom: 4px; right: -7px; }
     .footer-mid { text-align: center; }
-    .footer-mid p {
-      font-size: 0.58rem; font-weight: 200; letter-spacing: 0.2em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35);
-      margin-bottom: 0.15rem;
-    }
-
+    .footer-mid p { font-size: 0.58rem; font-weight: 200; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.15rem; }
     .footer-links { display: flex; gap: 1.75rem; }
-    .footer-links a {
-      font-size: 0.6rem; font-weight: 200; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(255,255,255,0.45);
-      text-decoration: none; transition: color 0.2s;
-    }
+    .footer-links a { font-size: 0.6rem; font-weight: 200; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
 
-    /* ─── ANIMATIONS ─────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(32px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    /* ─── ANIMATIONS ─────────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
 
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    /* ─── RESPONSIVE ─────────────────────────────────── */
     @media (max-width: 1100px) {
       .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .how-inner, .story-inner { grid-template-columns: 1fr; gap: 5rem; }
+      .custom-inner, .how-inner, .story-inner { grid-template-columns: 1fr; gap: 5rem; }
+      .gallery-slide { min-width: calc(50% - 0.75rem); }
       .story-badge { right: 0; bottom: 0; }
     }
-
     @media (max-width: 768px) {
       .nav { padding: 1.25rem 1.5rem; }
       .nav-links { display: none; }
       .section { padding: 6rem 1.5rem; }
-
-      .products-head {
-        flex-direction: column; align-items: flex-start; margin-bottom: 2.5rem;
-      }
+      .products-head { flex-direction: column; align-items: flex-start; margin-bottom: 2.5rem; }
       .hero-tags { gap: 1.25rem; }
-
+      .gallery-slide { min-width: calc(100% - 0px); }
+      .form-row { grid-template-columns: 1fr; }
       .cta-btns { flex-direction: column; align-items: center; }
-
-      footer {
-        flex-direction: column; text-align: center; padding: 2.25rem 1.5rem;
-      }
+      footer { flex-direction: column; text-align: center; padding: 2.25rem 1.5rem; }
       .footer-links { justify-content: center; }
-
       .story-stats { gap: 1.75rem; flex-wrap: wrap; }
     }
-
     @media (max-width: 480px) {
       .products-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
     }
@@ -455,29 +442,26 @@
 </head>
 <body>
 
-  <!-- ─── NAV ─────────────────────────── -->
+  <!-- ─── NAV ─────────────────────────────────────── -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav-logo" aria-label="fly — página inicial">fly</a>
+    <a href="#" class="nav-logo" aria-label="fly — início">fly</a>
     <ul class="nav-links">
-      <li><a href="#produtos">Peças</a></li>
-      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#pecas">Peças</a></li>
+      <li><a href="#personalizar">Personalizar</a></li>
       <li><a href="#historia">Nossa história</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="https://wa.me/5511972999980?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
-       class="nav-cta" target="_blank" rel="noopener">Encomendar</a>
+    <a href="#personalizar" class="nav-cta">Encomendar</a>
   </nav>
 
-  <!-- ─── HERO ─────────────────────────── -->
+  <!-- ─── HERO ─────────────────────────────────────── -->
   <section class="hero" id="inicio">
     <div class="hero-content">
-      <p class="hero-eyebrow">Bolsas &amp; Acessórios Handmade &middot; São Paulo</p>
+      <p class="hero-eyebrow">Bolsas & Acessórios Handmade · São Paulo</p>
       <span class="hero-wordmark" aria-label="fly">fly</span>
       <div class="hero-tags">
         <span class="hero-tag">Handmade</span>
-        <a href="https://wa.me/5511972999980?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
-           class="btn-pill" target="_blank" rel="noopener">
-          Make it yours
-        </a>
+        <a href="#personalizar" class="btn-pill">Make it yours</a>
         <span class="hero-tag">Since 2025</span>
       </div>
     </div>
@@ -487,30 +471,24 @@
     </div>
   </section>
 
-  <!-- ─── PRODUCTS ──────────────────────── -->
-  <section class="section products" id="produtos">
+  <!-- ─── PRODUCTS ──────────────────────────────────── -->
+  <section class="section products" id="pecas">
     <div class="products-head">
       <div class="reveal">
         <span class="label">The Collection</span>
         <h2 class="display">Cada peça,<br>um original.</h2>
       </div>
-      <a href="https://wa.me/5511972999980?text=Oi!+Quero+ver+os+produtos+da+Fly"
-         class="btn-pill btn-outline reveal"
-         style="color:var(--wine);border-color:var(--wine);"
-         target="_blank" rel="noopener">
-        Fazer encomenda
-      </a>
+      <a href="#personalizar" class="btn-pill btn-wine reveal">Fazer encomenda</a>
     </div>
-
     <div class="products-grid">
-
-      <!-- Bolsa -->
       <div class="p-card reveal">
         <div class="p-img">
-          <div class="p-img-fill wine" style="flex-direction:column;gap:0.6rem;"><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:rgba(255,255,255,0.22);">Íris</span><span style="font-size:0.55rem;letter-spacing:0.2em;">FOTO EM BREVE</span></div>
+          <div class="p-img-fill wine">
+            <span class="p-img-name">Íris</span>
+            <span class="p-img-tag">FOTO EM BREVE</span>
+          </div>
           <div class="p-overlay">
-            <a href="https://wa.me/5511972999980?text=Quero+uma+Bolsa+Fly!+🎀"
-               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+            <a href="#personalizar" class="btn-pill">Make it yours</a>
           </div>
         </div>
         <div class="p-info">
@@ -519,14 +497,14 @@
           <p class="p-price">A partir de R$&nbsp;250</p>
         </div>
       </div>
-
-      <!-- Porta-cartão -->
       <div class="p-card reveal" style="transition-delay:0.1s">
         <div class="p-img">
-          <div class="p-img-fill blue" style="flex-direction:column;gap:0.6rem;"><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:rgba(255,255,255,0.22);">Nina</span><span style="font-size:0.55rem;letter-spacing:0.2em;">FOTO EM BREVE</span></div>
+          <div class="p-img-fill blue">
+            <span class="p-img-name">Nina</span>
+            <span class="p-img-tag">FOTO EM BREVE</span>
+          </div>
           <div class="p-overlay">
-            <a href="https://wa.me/5511972999980?text=Quero+um+Porta-cart%C3%A3o+Fly!"
-               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+            <a href="#personalizar" class="btn-pill">Make it yours</a>
           </div>
         </div>
         <div class="p-info">
@@ -535,30 +513,30 @@
           <p class="p-price">A partir de R$&nbsp;90</p>
         </div>
       </div>
-
-      <!-- Porta-isqueiro -->
       <div class="p-card reveal" style="transition-delay:0.2s">
         <div class="p-img">
-          <div class="p-img-fill green" style="flex-direction:column;gap:0.6rem;"><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:rgba(255,255,255,0.22);">Chama</span><span style="font-size:0.55rem;letter-spacing:0.2em;">FOTO EM BREVE</span></div>
+          <div class="p-img-fill green">
+            <span class="p-img-name">Chama</span>
+            <span class="p-img-tag">FOTO EM BREVE</span>
+          </div>
           <div class="p-overlay">
-            <a href="https://wa.me/5511972999980?text=Quero+um+Porta-isqueiro+Fly!"
-               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+            <a href="#personalizar" class="btn-pill">Make it yours</a>
           </div>
         </div>
         <div class="p-info">
           <h3 class="p-name">Chama</h3>
-          <p class="p-sub">Porta-isqueiro artesanal · Estilo único</p>
+          <p class="p-sub">Porta-isqueiro artesanal · Estilo único em miçangas</p>
           <p class="p-price">A partir de R$&nbsp;70</p>
         </div>
       </div>
-
-      <!-- Chaveiro -->
       <div class="p-card reveal" style="transition-delay:0.3s">
         <div class="p-img">
-          <div class="p-img-fill gold" style="flex-direction:column;gap:0.6rem;"><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:rgba(255,255,255,0.22);">Sol</span><span style="font-size:0.55rem;letter-spacing:0.2em;">FOTO EM BREVE</span></div>
+          <div class="p-img-fill gold">
+            <span class="p-img-name">Sol</span>
+            <span class="p-img-tag">FOTO EM BREVE</span>
+          </div>
           <div class="p-overlay">
-            <a href="https://wa.me/5511972999980?text=Quero+um+Chaveiro+Fly!"
-               class="btn-pill" target="_blank" rel="noopener">Make it yours</a>
+            <a href="#personalizar" class="btn-pill">Make it yours</a>
           </div>
         </div>
         <div class="p-info">
@@ -567,62 +545,247 @@
           <p class="p-price">A partir de R$&nbsp;50</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── TICKER ────────────────────────────────────── -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Boas coisas levam tempo</span>
+      <span class="ticker-item">Feito à mão com amor</span>
+      <span class="ticker-item">Cada peça é única</span>
+      <span class="ticker-item">100% handmade</span>
+      <span class="ticker-item">Personalização total</span>
+      <span class="ticker-item">Boas coisas levam tempo</span>
+      <span class="ticker-item">Feito à mão com amor</span>
+      <span class="ticker-item">Cada peça é única</span>
+      <span class="ticker-item">100% handmade</span>
+      <span class="ticker-item">Personalização total</span>
+    </div>
+  </div>
+
+  <!-- ─── NAMED PIECES GALLERY ──────────────────────── -->
+  <section class="section gallery">
+    <div class="gallery-inner">
+      <div class="gallery-head reveal">
+        <span class="label">Peças anteriores</span>
+        <h2 class="display">Cada peça leva<br>o nome de quem vai usar.</h2>
+        <p>Quem encomenda, dá o nome. A bolsa da Mari, o chaveiro da Camila, o porta-cartão da Lu. Cada peça é feita pra ser de alguém específico — não tem outra igual no mundo.</p>
+      </div>
+
+      <div class="gallery-carousel reveal">
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g1">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">A Bolsa da Mari</div>
+                  <div class="gallery-slide-style">Style · Íris</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g2">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">O Chaveiro da Bia</div>
+                  <div class="gallery-slide-style">Style · Sol</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g3">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">O Porta-cartão da Lu</div>
+                  <div class="gallery-slide-style">Style · Nina</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g4">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">A Bolsa da Gabi</div>
+                  <div class="gallery-slide-style">Style · Íris · Bespoke</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g5">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">O Isqueiro da Rafa</div>
+                  <div class="gallery-slide-style">Style · Chama</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-slide">
+            <div class="gallery-slide-img">
+              <div class="gallery-slide-fill gallery-g6">
+                <div class="gallery-slide-info">
+                  <div class="gallery-slide-name">A Bolsa da Carol</div>
+                  <div class="gallery-slide-style">Style · Íris</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /track -->
+      </div><!-- /carousel -->
+
+      <div class="gallery-nav">
+        <div class="gallery-dots" id="galleryDots"></div>
+        <div class="gallery-arrows">
+          <button class="gallery-arrow" id="galleryPrev" aria-label="anterior">&#8592;</button>
+          <button class="gallery-arrow" id="galleryNext" aria-label="próxima">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CUSTOM ENQUIRY FORM ───────────────────────── -->
+  <section class="section custom-section" id="personalizar">
+    <div class="custom-inner">
+
+      <div class="custom-text reveal">
+        <span class="label label-light">Encomenda personalizada</span>
+        <h2 class="display" style="color:var(--white);">Desenhada<br>por você.</h2>
+        <p>Você escolhe a peça, as cores, o estilo. A gente faz à mão, com atenção a cada detalhe.</p>
+        <p>Cada encomenda começa com uma conversa no WhatsApp pra alinhar tudo. Prazo: 5 a 10 dias úteis após confirmação.</p>
+        <div class="custom-tagline">
+          <p>"Boas coisas levam tempo — e a sua vai valer cada minuto."</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="enquiry-form" id="enquiryForm" novalidate>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Nome completo <span>(obrigatório)</span></label>
+              <input type="text" id="fieldNome" placeholder="Seu nome" required>
+            </div>
+            <div class="field">
+              <label>WhatsApp <span>(obrigatório)</span></label>
+              <input type="tel" id="fieldWpp" placeholder="(11) 99999-9999" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Qual peça você quer? <span>(obrigatório)</span></label>
+            <select id="fieldPeca" required>
+              <option value="" disabled selected>Selecione uma peça</option>
+              <option value="Bolsa Íris">Bolsa Íris — a partir de R$250</option>
+              <option value="Porta-cartão Nina">Porta-cartão Nina — a partir de R$90</option>
+              <option value="Porta-isqueiro Chama">Porta-isqueiro Chama — a partir de R$70</option>
+              <option value="Chaveiro Sol">Chaveiro Sol — a partir de R$50</option>
+              <option value="Bespoke (peça exclusiva)">Bespoke — peça exclusiva personalizada</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Cores principais <span>(obrigatório · até 4)</span></label>
+            <div class="color-input-area" id="mainColorsArea">
+              <input class="color-add-input" id="mainColorInput" placeholder="Digite uma cor e pressione Enter..." maxlength="30">
+            </div>
+            <div class="field-hint" id="mainColorHint">0 de 4 cores adicionadas</div>
+          </div>
+
+          <div class="field">
+            <label>Cores secundárias <span>(até 2 · serão usadas com moderação)</span></label>
+            <div class="color-input-area" id="subColorsArea">
+              <input class="color-add-input" id="subColorInput" placeholder="Digite uma cor e pressione Enter..." maxlength="30">
+            </div>
+            <div class="field-hint" id="subColorHint">0 de 2 cores adicionadas</div>
+          </div>
+
+          <div class="field">
+            <label>Ocasião / uso</label>
+            <input type="text" id="fieldOcasiao" placeholder="Ex: presente, uso diário, balada, trabalho...">
+          </div>
+
+          <div class="field">
+            <label>Observações</label>
+            <textarea id="fieldObs" placeholder="Diga qualquer detalhe que queira: estilo, referências, o que evitar..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Referência visual (foto de inspiração)</label>
+            <div class="file-drop" id="fileDrop">
+              <label class="file-drop-label" for="fieldFile">&#128247; Arraste ou clique para adicionar uma foto de referência</label>
+              <input type="file" id="fieldFile" accept="image/*,.pdf">
+              <div class="file-name" id="fileName"></div>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-pill btn-white" style="width:100%;justify-content:center;font-size:0.7rem;padding:1.1rem;">
+              Enviar pelo WhatsApp &#8594;
+            </button>
+            <p class="form-note">Você será redirecionado ao WhatsApp com tudo preenchido. Nenhum dado é armazenado.</p>
+          </div>
+
+        </form>
+      </div>
 
     </div>
   </section>
 
-  <!-- ─── HOW IT WORKS ──────────────────── -->
+  <!-- ─── HOW IT WORKS ──────────────────────────────── -->
   <section class="section how" id="como-funciona">
     <div class="how-inner">
-
-      <div class="how-text reveal">
+      <div class="reveal">
         <span class="label">Como funciona</span>
-        <h2 class="display">Feito pra você.<br>Do zero.</h2>
-        <p>Cada peça é produzida à mão com cuidado e dedicação. Você escolhe as cores e o estilo — a gente transforma em realidade. Nada de estoque: tudo é feito especialmente para quem vai usar.</p>
-        <a href="https://wa.me/5511972999980?text=Quero+personalizar+minha+pe%C3%A7a+Fly!"
-           class="btn-pill btn-outline" target="_blank" rel="noopener">
-          Começar meu pedido
-        </a>
+        <h2 class="display">Do pedido<br>às suas mãos.</h2>
       </div>
-
       <div class="steps reveal">
         <div class="step">
           <span class="step-num" aria-hidden="true">01</span>
           <div class="step-body">
-            <h4>Escolha sua peça</h4>
-            <p>Bolsa, porta-cartão, porta-isqueiro ou chaveiro. Você decide o ponto de partida.</p>
+            <h4>Preencha o formulário</h4>
+            <p>Conta o que você quer: peça, cores, estilo, ocasião. Mais detalhes = peça mais incrível.</p>
           </div>
         </div>
         <div class="step">
           <span class="step-num" aria-hidden="true">02</span>
           <div class="step-body">
-            <h4>Define as cores</h4>
-            <p>Nos chama no WhatsApp e a gente monta a paleta de miçangas ideal pra você.</p>
+            <h4>A gente entra em contato</h4>
+            <p>Em até 24h, a gente te chama no WhatsApp pra alinhar tudo e confirmar o pedido.</p>
           </div>
         </div>
         <div class="step">
           <span class="step-num" aria-hidden="true">03</span>
           <div class="step-body">
-            <h4>A gente faz com amor</h4>
-            <p>Sua peça é produzida à mão em até 10 dias úteis. Entrada de 50% ao confirmar.</p>
+            <h4>Entrada de 50%</h4>
+            <p>Confirmado o pedido, você paga 50% via PIX. Aí a gente começa a produzir.</p>
           </div>
         </div>
         <div class="step">
           <span class="step-num" aria-hidden="true">04</span>
           <div class="step-body">
             <h4>Receba e arrasa</h4>
-            <p>Saldo + envio ao concluir. Sua peça chega e ninguém no mundo tem igual.</p>
+            <p>Em 5–10 dias úteis, sua peça fica pronta. Saldo + envio, e ela chega na sua porta.</p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ─── STORY ─────────────────────────── -->
+  <!-- ─── STORY ─────────────────────────────────────── -->
   <section class="section story" id="historia">
     <div class="story-inner">
-
       <div class="story-visual reveal">
         <div class="story-img">Foto das sócias</div>
         <div class="story-badge" aria-hidden="true">
@@ -630,7 +793,6 @@
           <small>Mãos que<br>criam</small>
         </div>
       </div>
-
       <div class="story-text reveal">
         <span class="label">Nossa história</span>
         <h2 class="display">Do hobby<br>à marca.</h2>
@@ -638,46 +800,96 @@
         <p>O que começou como hobby virou paixão — e a paixão virou marca. Flávia, Lais e Yasmin. Três CLTs que decidiram criar algo próprio, original e bonito de verdade.</p>
         <p>Cada bolsa tem 7 horas de trabalho por trás. Não é produto, é obra.</p>
         <div class="story-stats">
-          <div class="stat">
-            <h3>7h</h3>
-            <p>por bolsa</p>
+          <div class="stat"><h3>7h</h3><p>por bolsa</p></div>
+          <div class="stat"><h3>100%</h3><p>Handmade</p></div>
+          <div class="stat"><h3>∞</h3><p>Combinações</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ───────────────────────────────────────── -->
+  <section class="section faq" id="faq">
+    <div class="faq-inner">
+      <div class="reveal">
+        <span class="label">Dúvidas frequentes</span>
+        <h2 class="display">FAQ</h2>
+      </div>
+      <div class="reveal">
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Quanto tempo leva pra ficar pronto?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>De 5 a 10 dias úteis após a confirmação do pedido. Peças com maior complexidade ou cores específicas podem levar um pouco mais. Se você tiver um prazo importante (presente, viagem, evento), avisa a gente que a gente faz o possível!</p>
           </div>
-          <div class="stat">
-            <h3>100%</h3>
-            <p>Handmade</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Como funciona o processo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Você preenche o formulário → a gente te chama no WhatsApp em até 24h → alinhamos todos os detalhes → você paga 50% de entrada via PIX → produção começa → em 5–10 dias, peça pronta → saldo + envio. Simples assim.</p>
           </div>
-          <div class="stat">
-            <h3>∞</h3>
-            <p>Combinações</p>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Quais são as formas de pagamento?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>PIX ou transferência bancária. 50% na confirmação do pedido, 50% quando a peça estiver pronta (junto com o envio). Trabalhamos com esse modelo pra garantir que a gente consiga comprar os materiais certos pra sua peça.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Vocês enviam pra todo o Brasil?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Sim! Enviamos via Correios (PAC ou Sedex) pra qualquer cidade do Brasil. O frete é calculado no momento do pedido, de acordo com o CEP de entrega. Prazo de entrega é por conta dos Correios após o despacho.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Posso mudar as cores depois do pedido?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Alterações podem ser feitas dentro de 24h após a confirmação do pedido, antes de comprarmos os materiais. Depois disso, a peça já entra em produção. Mas não se preocupe: a gente vai alinhar tudo com você no WhatsApp antes de começar.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Posso encomendar como presente?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Com certeza! É uma das melhores opções de presente. Se quiser, podemos fazer a entrega direto no endereço do presenteado. Avisar a gente que é presente também ajuda a colocarmos aquele toque especial na embalagem.</p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ─── CTA ───────────────────────────── -->
-  <section class="cta" id="contato">
+  <!-- ─── CTA STRIP ──────────────────────────────────── -->
+  <section class="cta">
     <span class="label reveal">Encomendas abertas</span>
     <h2 class="display reveal" style="color:var(--white);margin-bottom:1.75rem;">Sua peça espera<br>por você.</h2>
-    <p class="reveal">Fala com a gente pelo WhatsApp para escolher sua peça e personalizar as cores. Produção artesanal, entrega com amor.</p>
+    <p class="reveal">Preenche o formulário, a gente entra em contato. Em 5 a 10 dias, sua peça chega feita com amor — e com o seu nome.</p>
     <div class="cta-btns reveal">
-      <a href="https://wa.me/5511972999980?text=Oi!+Quero+fazer+um+pedido+na+Fly+🎀"
-         class="btn-pill btn-white" target="_blank" rel="noopener">
-        Pedir pelo WhatsApp
-      </a>
-      <a href="https://instagram.com/fly.handmade"
-         class="btn-pill btn-outline" target="_blank" rel="noopener">
-        @fly.handmade
-      </a>
+      <a href="#personalizar" class="btn-pill btn-white">Fazer encomenda</a>
+      <a href="https://instagram.com/fly.handmade" class="btn-pill btn-outline" target="_blank" rel="noopener">@fly.handmade</a>
     </div>
   </section>
 
-  <!-- ─── FOOTER ────────────────────────── -->
+  <!-- ─── FOOTER ────────────────────────────────────── -->
   <footer>
     <div class="footer-logo" aria-label="fly">fly</div>
     <div class="footer-mid">
-      <p>Handmade &middot; São Paulo &middot; Since 2025</p>
+      <p>Handmade · São Paulo · Since 2025</p>
       <p>Feito com amor e miçangas ♥</p>
     </div>
     <div class="footer-links">
@@ -686,27 +898,145 @@
     </div>
   </footer>
 
+  <!-- ─── SCRIPTS ───────────────────────────────────── -->
   <script>
-    // Navbar scroll effect
+    // ── Navbar scroll
     const nav = document.getElementById('nav');
-    const hero = document.querySelector('.hero');
+    new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0.15 })
+      .observe(document.querySelector('.hero'));
 
-    const navObs = new IntersectionObserver(([entry]) => {
-      nav.classList.toggle('scrolled', !entry.isIntersecting);
-    }, { threshold: 0.15 });
-    navObs.observe(hero);
+    // ── Scroll reveal
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-    // Scroll reveal
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          revealObs.unobserve(e.target);
+    // ── Gallery carousel
+    (function() {
+      const track = document.getElementById('galleryTrack');
+      const slides = track.querySelectorAll('.gallery-slide');
+      const dotsContainer = document.getElementById('galleryDots');
+      let current = 0;
+      const getSlidesPerView = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1100 ? 2 : 3;
+      const totalGroups = () => Math.ceil(slides.length / getSlidesPerView());
+
+      // Build dots
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalGroups(); i++) {
+          const d = document.createElement('button');
+          d.className = 'gallery-dot' + (i === current ? ' active' : '');
+          d.setAttribute('aria-label', 'Slide ' + (i + 1));
+          d.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(d);
+        }
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, totalGroups() - 1));
+        const spv = getSlidesPerView();
+        const slideW = slides[0].offsetWidth + 24; // gap 1.5rem ≈ 24px
+        track.style.transform = `translateX(${-current * spv * slideW}px)`;
+        dotsContainer.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      document.getElementById('galleryPrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('galleryNext').addEventListener('click', () => goTo(current + 1));
+
+      buildDots(); goTo(0);
+      window.addEventListener('resize', () => { buildDots(); goTo(0); });
+    })();
+
+    // ── Color chip builder
+    function colorChipSystem(areaId, inputId, hintId, max) {
+      const area = document.getElementById(areaId);
+      const input = document.getElementById(inputId);
+      const hint = document.getElementById(hintId);
+      const colors = [];
+
+      function render() {
+        // Remove existing chips
+        area.querySelectorAll('.color-chip').forEach(c => c.remove());
+        colors.forEach((color, i) => {
+          const chip = document.createElement('span');
+          chip.className = 'color-chip';
+          chip.innerHTML = color + ' <span class="color-chip-remove" data-i="' + i + '">×</span>';
+          chip.querySelector('.color-chip-remove').addEventListener('click', () => { colors.splice(i, 1); render(); });
+          area.insertBefore(chip, input);
+        });
+        input.style.display = colors.length >= max ? 'none' : '';
+        hint.textContent = colors.length + ' de ' + max + ' cores adicionadas';
+      }
+
+      input.addEventListener('keydown', e => {
+        if ((e.key === 'Enter' || e.key === ',') && input.value.trim()) {
+          e.preventDefault();
+          if (colors.length < max) { colors.push(input.value.trim()); input.value = ''; render(); }
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+      render();
+      return () => colors;
+    }
+
+    const getMainColors = colorChipSystem('mainColorsArea', 'mainColorInput', 'mainColorHint', 4);
+    const getSubColors  = colorChipSystem('subColorsArea',  'subColorInput',  'subColorHint',  2);
+
+    // ── File drop
+    const fileDrop = document.getElementById('fileDrop');
+    const fileInput = document.getElementById('fieldFile');
+    const fileName = document.getElementById('fileName');
+    fileDrop.addEventListener('click', () => fileInput.click());
+    fileDrop.addEventListener('dragover', e => { e.preventDefault(); fileDrop.style.borderColor = 'rgba(255,255,255,0.5)'; });
+    fileDrop.addEventListener('dragleave', () => fileDrop.style.borderColor = '');
+    fileDrop.addEventListener('drop', e => { e.preventDefault(); fileDrop.style.borderColor = ''; const f = e.dataTransfer.files[0]; if (f) fileName.textContent = '📎 ' + f.name; });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) fileName.textContent = '📎 ' + fileInput.files[0].name; });
+
+    // ── Form → WhatsApp
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome   = document.getElementById('fieldNome').value.trim();
+      const wpp    = document.getElementById('fieldWpp').value.trim();
+      const peca   = document.getElementById('fieldPeca').value;
+      const main   = getMainColors().join(', ') || '—';
+      const sub    = getSubColors().join(', ')  || '—';
+      const oca    = document.getElementById('fieldOcasiao').value.trim() || '—';
+      const obs    = document.getElementById('fieldObs').value.trim()     || '—';
+
+      if (!nome) { alert('Por favor, informe seu nome.'); return; }
+      if (!wpp)  { alert('Por favor, informe seu WhatsApp.'); return; }
+      if (!peca) { alert('Por favor, escolha uma peça.'); return; }
+      if (getMainColors().length === 0) { alert('Por favor, adicione pelo menos uma cor principal.'); return; }
+
+      const msg = [
+        '🎀 *Encomenda Fly*',
+        '',
+        '*Nome:* ' + nome,
+        '*WhatsApp:* ' + wpp,
+        '',
+        '*Peça desejada:* ' + peca,
+        '*Cores principais:* ' + main,
+        '*Cores secundárias:* ' + sub,
+        '*Ocasião/uso:* ' + oca,
+        '*Observações:* ' + obs,
+        '',
+        '_Enviado pelo site fly-handmade.vercel.app_'
+      ].join('\n');
+
+      const url = 'https://wa.me/5511972999980?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    });
+
+    // ── FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
   </script>
+
 </body>
 </html>
